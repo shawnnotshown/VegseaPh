@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>News and Events</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"
+            crossorigin="anonymous"></script>
+        <!-- Latest Font Awesome CDN (full icon set) -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            rel="stylesheet">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+            rel="stylesheet">
+
+        <style>
+    /* FONT */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2e2e2e !important;
+  margin: 0 15px;
+}
+
+.navbar-nav .nav-link.active {
+  color: #28a745 !important;
+}
+
+.nav-logo img {
+  height: 60px;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-logo {
+    margin-bottom: 10px;
+  }
+}
+
+/* Navbar animation */
+@keyframes slideFadeDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-navbar {
+  animation: slideFadeDown 0.8s ease-out forwards;
+}
+
+/* Navbar Dropdown */
+.dropdown-menu {
+  background-color: #075e54;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  margin-top: 0.5rem;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+.dropdown-item:hover {
+  background-color: #0a7b6c;
+  color: #ffffff;
+}
+
+/* BUTTONS */
+.btn-green {
+  background: linear-gradient(to right, #1a7f4e, #4CAF50);
+  color: white;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-green:hover {
+  opacity: 0.9;
+}
+
+/* SOCIAL ICONS */
+.social-icon:hover {
+  color: #d4f6d2;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); }
+  100% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); }
+}
+.logo-glow {
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+
+
+
+/* ============================= */
+/* === FOOTER ================== */
+/* ============================= */
+footer {
+  background: linear-gradient(to bottom, #136a8a, #39b54a);
+  color: white;
+  padding: 70px 0 30px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .logo-glow {
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+footer .social-icon {
+  font-size: 1.8rem;
+}
+
+footer .border-top {
+  border-color: rgba(255,255,255,0.2);
+  font-size: 0.9rem;
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+
+.partner-section {
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.partner-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;
+  /* Optional: if you want wave effect */
+  border-bottom-left-radius: 60% 20%;
+  border-bottom-right-radius: 60% 20%;
+}
+
+.partner-content h2 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+}
+
+.partner-content p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Gradient Button */
+.btn-gradient {
+  background: linear-gradient(90deg, #1a7f4e, #39b54a);
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.4s ease;
+  display: inline-block;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #39b54a, #1a7f4e);
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .partner-content h2 {
+    font-size: 2rem;
+  }
+}
+
+.why-partner-section {
+  background: #ffffff;
+}
+
+.partner-benefit {
+  padding: 20px;
+}
+
+.partner-benefit {
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; /* let it stretch naturally */
+}
+
+.icon-img {
+  width: 220px; /* wider */
+  height: 220px; /* taller */
+  object-fit: cover; /* crop nicely */
+  border-radius: 20px; /* soft curve edges */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* better shadow */
+  transition: transform 0.3s ease;
+}
+.partner-benefit .icon-img:hover {
+  transform: scale(1.05);
+}
+
+.partner-benefit h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.partner-benefit p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Button */
+.btn-gradient {
+  background: linear-gradient(90deg, #1a7f4e, #39b54a);
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.4s ease;
+  display: inline-block;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #39b54a, #1a7f4e);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .partner-benefit h4 {
+    font-size: 1.3rem;
+  }
+}
+
+
+.partner-categories-section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.partner-category {
+  margin-bottom: 60px;
+}
+
+.partner-category h3 {
+  font-size: 2rem;
+}
+
+.partner-category p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.partner-logo {
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.partner-logo:hover {
+  transform: scale(1.08);
+}
+
+/* Button */
+.btn-gradient {
+  background: linear-gradient(90deg, #1a7f4e, #39b54a);
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.4s ease;
+  display: inline-block;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #39b54a, #1a7f4e);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .partner-logo {
+    height: 40px;
+  }
+}
+
+.media-highlights-section {
+  background-color: #ffffff;
+}
+
+.media-thumbnail {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+.media-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.media-logo {
+  height: 30px;
+  width: 30px;
+  object-fit: contain;
+}
+
+.media-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #28a745;
+  text-decoration: none;
+}
+
+.media-link:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.btn-gradient {
+  background: linear-gradient(90deg, #1a7f4e, #39b54a);
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: 0.4s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #39b54a, #1a7f4e);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .media-thumbnail {
+    width: 100px;
+    height: 80px;
+  }
+}
+
+
+
+
+
+  </style>
+    </head>
+    <body>
+
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-expand-lg shadow-sm animate-navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center"
+                    id="navbarContent">
+                    <ul class="navbar-nav">
+                        <a href="index.html"><li class="nav-item nav-logo"><img
+                                    src="images/logo.png"
+                                    alt="VegSea Logo"></li></a>
+                        <li class="nav-item"><a class="nav-link "
+                                href="index.htmls">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="#"
+                                id="ourCompanyDropdown" role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Our Company
+                            </a>
+                            <ul class="dropdown-menu custom-dropdown"
+                                aria-labelledby="ourCompanyDropdown">
+                                <li><a class="dropdown-item" href="aboutus.html">About
+                                        Us</a></li>
+                                <li><a class="dropdown-item" href="meettheteam.html">Meet the
+                                        Team</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link active"
+                                href="partnerwithus.html">Partner With
+                                Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="newsevnets.html">News &
+                                Events</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="contactus.html">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br><br>
+
+        <section class="partner-section py-5">
+            <div class="container">
+              <div class="row align-items-center">
+                
+                <!-- Left: Image -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                  <div class="partner-image-wrapper">
+                    <img src="images/1.png" alt="Partner with us" class="img-fluid">
+                  </div>
+                </div>
+          
+                <!-- Right: Text Content -->
+                <div class="col-lg-6">
+                  <div class="partner-content">
+                    <h5 class="text-success fw-bold mb-3" style="letter-spacing: 1px;">Become a Vegsea Partner</h5>
+                    <h2 class="fw-bold mb-4" style="color: #083b2b;">Grow your business and make a difference</h2>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+                      As a Vegsea partner, you get access to a dynamic network, innovative technologies, 
+                      and a platform that connects you directly to conscious consumers. 
+                      Join us in our mission to revolutionize the agri-fisheries industry 
+                      through sustainable practices and empowering small farmers and fisherfolk!
+                    </p>
+          
+                    <a href="#" class="btn-gradient mt-4">BECOME A PARTNER</a>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </section>
+
+          <section class="why-partner-section py-5">
+            <div class="container text-center">
+              <h2 class="fw-bold mb-5" style="color: #083b2b;">
+                Why Should I Partner with <span class="text-success">Vegsea</span>?
+              </h2>
+          
+              <div class="row g-5 justify-content-center">
+          
+                <!-- Card 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                  <div class="partner-benefit">
+                    <img src="images/farmers.jpg" alt="Access to products" class="icon-img mb-4">
+                    <h4 class="fw-bold mb-3" style="color: #2e2e2e;">Access to a diverse range of<br>locally-sourced products</h4>
+                    <p class="text-muted">
+                      Our commitment to sourcing from local farmers ensures you can offer your customers 
+                      the freshest, highest-quality products while supporting local communities.
+                    </p>
+                  </div>
+                </div>
+          
+                <!-- Card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <div class="partner-benefit">
+                    <img src="images/supply.jpg" alt="Supply Chain" class="icon-img mb-4">
+                    <h4 class="fw-bold mb-3" style="color: #2e2e2e;">Streamlined supply chain<br>and competitive pricing</h4>
+                    <p class="text-muted">
+                      By working directly with farmers, we establish fair and transparent relationships, 
+                      ensuring you receive the best prices for top-notch products while supporting 
+                      sustainable farming practices.
+                    </p>
+                  </div>
+                </div>
+          
+                <!-- Card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                  <div class="partner-benefit">
+                    <img src="images/farmers.jpg" alt="Ethical Practices" class="icon-img mb-4">
+                    <h4 class="fw-bold mb-3" style="color: #2e2e2e;">Ethical and sustainable<br>practices</h4>
+                    <p class="text-muted">
+                      With Vegsea, you become part of the solution ensuring fair compensation for farmers, 
+                      and fostering a more sustainable and just food system.
+                    </p>
+                  </div>
+                </div>
+          
+              </div>
+          
+              <div class="mt-5">
+                <a href="becomeapartner.html" class="btn-gradient">BECOME A PARTNER</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="partner-categories-section py-5">
+            <div class="container text-center">
+          
+              <h2 class="fw-bold mb-5" style="color: #083b2b;">
+                Why Should I Partner with <span class="text-success">Vegsea</span>?
+              </h2>
+          
+              <!-- Modern Trade -->
+              <div class="partner-category mb-5">
+                <h3 class="fw-bold mb-3" style="color: #28a745;">Modern Trade</h3>
+                <p class="text-muted mb-4" style="max-width: 800px; margin: 0 auto;">
+                  Vegsea connects modern trade retailers like mini-markets, supermarkets, and hypermarkets 
+                  with our extensive network of local farmers, offering an unparalleled solution to diversify and 
+                  enhance your product offerings. Enjoy the highest quality products straight from the farm!
+                </p>
+          
+                <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-4">
+                  <img src="merrymart-logo.png" alt="Merrymart" class="partner-logo">
+                  <img src="puregold-logo.png" alt="Puregold" class="partner-logo">
+                  <img src="supermarket-logo.png" alt="Supermarket" class="partner-logo">
+                </div>
+              </div>
+          
+              <!-- Hotels, Restaurants, Cafes -->
+              <div class="partner-category mb-5">
+                <h3 class="fw-bold mb-3" style="color: #28a745;">Hotels, Restaurants, Cafes</h3>
+                <p class="text-muted mb-4" style="max-width: 800px; margin: 0 auto;">
+                  Vegsea delivers exceptional culinary ingredients that delight your customers. 
+                  Prioritizing locally sourced goods, we help you connect with your community and 
+                  foster sustainability in the F&B industry.
+                </p>
+          
+                <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-4">
+                  <img src="auro-logo.png" alt="Auro Chocolate" class="partner-logo">
+                  <img src="bonchon-logo.png" alt="Bonchon" class="partner-logo">
+                  <img src="cityofdreams-logo.png" alt="City of Dreams" class="partner-logo">
+                  <img src="crimson-logo.png" alt="Crimson" class="partner-logo">
+                  <img src="worldresorts-logo.png" alt="Resorts World" class="partner-logo">
+                  <img src="wildflour-logo.png" alt="Wildflour" class="partner-logo">
+                </div>
+              </div>
+          
+              <!-- Empowering Businesses -->
+              <div class="partner-category mb-4">
+                <h3 class="fw-bold mb-3" style="color: #28a745;">Empowering Starting Businesses</h3>
+                <p class="text-muted mb-4" style="max-width: 800px; margin: 0 auto;">
+                  Vegsea supports small businesses by providing premium, affordable, and locally sourced 
+                  produce directly from our trusted farmers and fisherfolk. Access premium quality without 
+                  straining your budget!
+                </p>
+              </div>
+          
+              <div class="mt-5">
+                <a href="becomeapartner.html" class="btn-gradient">BECOME A PARTNER</a>
+              </div>
+          
+            </div>
+          </section>
+
+          <section class="media-highlights-section py-5">
+            <div class="container">
+          
+              <h2 class="text-center fw-bold mb-5" style="color: #083b2b;">
+                Media <span class="text-success">Highlights</span>
+              </h2>
+          
+              <div class="row g-5">
+          
+                <!-- Single Media Block -->
+                <div class="col-md-6">
+                  <div class="media-card d-flex align-items-start gap-4">
+                    <img src="agfunder-image.jpg" alt="AgFunder News" class="media-thumbnail">
+                    <div>
+                      <h5 class="fw-bold text-success">AgFunder News</h5>
+                      <p class="text-muted small">
+                        AgFunder impact fund leads Mayani’s $1.7m seed round to scale Filipino farm and fisheries produce marketplace
+                      </p>
+                      <div class="d-flex align-items-center gap-2 mt-2">
+                        <img src="afn-logo.png" alt="AFN" class="media-logo">
+                        <a href="#" class="media-link" target="_blank">Link <i class="fas fa-arrow-up-right-from-square"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Repeat the block for each media highlight -->
+                <div class="col-md-6">
+                  <div class="media-card d-flex align-items-start gap-4">
+                    <img src="asiatechdaily-image.jpg" alt="Asia Tech Daily" class="media-thumbnail">
+                    <div>
+                      <h5 class="fw-bold text-success">Asia Tech Daily</h5>
+                      <p class="text-muted small">
+                        Philippine agritech startup Mayani harvests $1.7m in Seed funding.
+                      </p>
+                      <div class="d-flex align-items-center gap-2 mt-2">
+                        <img src="asiatech-logo.png" alt="Asia Tech" class="media-logo">
+                        <a href="#" class="media-link" target="_blank">Link <i class="fas fa-arrow-up-right-from-square"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Keep repeating -->
+          
+              </div>
+          
+              <!-- Become Partner Button -->
+              <div class="text-center mt-5">
+                <a href="becomeapartner.html" class="btn-gradient">BECOME A PARTNER</a>
+              </div>
+          
+            </div>
+          </section>
+          
+          
+          
+          
+
+
+        <footer
+            style="background: linear-gradient(to bottom, #136a8a, #39b54a); color: white; padding: 70px 0 30px 0;">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <!-- Logo + Description + Social -->
+                    <div
+                        class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+                        <div
+                            class="d-flex flex-column align-items-center align-items-lg-start">
+                            <img src="images/logo-white.png" alt="VegSea Logo"
+                                style="height: 110px;"
+                                class="mb-4 logo-glow">
+
+                            <p
+                                style="font-size: 1.1rem; line-height: 1.8; max-width: 450px;">
+                                The Philippines’ fastest-growing, impact-driven
+                                agri-tech
+                                platform empowering smallholder farmers and
+                                fisherfolks across
+                                the archipelago through sustainable access to
+                                market, inputs,
+                                and credit. Trusted by a solid portfolio of B2B
+                                buyers.
+                            </p>
+
+                            <div class="d-flex gap-4 mt-4">
+                                <a href="#"
+                                    class="text-white fs-3 social-icon"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="text-white fs-3 social-icon"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <a href="#"
+                                    class="text-white fs-3 social-icon"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="#"
+                                    class="text-white fs-3 social-icon"><i
+                                        class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Links -->
+                    <div class="col-lg-7 d-flex justify-content-center">
+                        <div class="row gy-4 w-100 text-center text-lg-start">
+
+                            <div class="col-6 col-md-4">
+                                <h6 class="fw-bold mb-3">Shop</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Pakyawan</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Vegetables</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Fruits</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Frozen
+                                            Meat</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Plant
+                                            Based Meat</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block">Bundles</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-md-4">
+                                <h6 class="fw-bold mb-3">About VegSea</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">About
+                                            Us</a></li>
+                                    <li><a href="meettheteam.html"
+                                            class="text-white text-decoration-none d-block mb-2">Meet
+                                            the Team</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Partner
+                                            with Us</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block">Become
+                                            a
+                                            Reseller</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-6 col-md-4">
+                                <h6 class="fw-bold mb-3">Contact</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block mb-2">Contact
+                                            Us</a></li>
+                                    <li><a href="#"
+                                            class="text-white text-decoration-none d-block">Viber</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Divider -->
+                <div class="text-center mt-5 pt-4 border-top"
+                    style="border-color: rgba(255,255,255,0.2); font-size: 0.9rem;">
+                    &copy; 2025 VegSea. All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- AOS JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+  AOS.init();
+</script>
+    </body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet the Team</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
+    <!-- Latest Font Awesome CDN (full icon set) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet">
+
+    <style>
+    /* FONT */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2e2e2e !important;
+  margin: 0 15px;
+}
+
+.navbar-nav .nav-link.active {
+  color: #28a745 !important;
+}
+
+.nav-logo img {
+  height: 60px;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-logo {
+    margin-bottom: 10px;
+  }
+}
+
+/* Navbar animation */
+@keyframes slideFadeDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-navbar {
+  animation: slideFadeDown 0.8s ease-out forwards;
+}
+
+/* Navbar Dropdown */
+.dropdown-menu {
+  background-color: #075e54;
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  margin-top: 0.5rem;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+.dropdown-item:hover {
+  background-color: #0a7b6c;
+  color: #ffffff;
+}
+
+/* BUTTONS */
+.btn-green {
+  background: linear-gradient(to right, #1a7f4e, #4CAF50);
+  color: white;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-green:hover {
+  opacity: 0.9;
+}
+
+/* SOCIAL ICONS */
+.social-icon:hover {
+  color: #d4f6d2;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); }
+  50% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1)); }
+  100% { filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); }
+}
+.logo-glow {
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+/* ============================= */
+/* === TEAM SECTION ============ */
+/* ============================= */
+.meet-team-section {
+  background: #ffffff;
+  padding: 100px 0;
+}
+
+.team-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.team-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* === TEAM PHOTO SECTION ====== */
+/* ============================= */
+.team-photo-section {
+  background-color: #f5f5f5;
+  padding: 80px 20px;
+}
+
+.photo-wrapper img {
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  width: 100%;
+  max-height: 700px;
+}
+
+/* ============================= */
+/* === VEGSEA WAY SECTION ====== */
+/* ============================= */
+.vegsea-way-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
+.vegsea-image-full {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.vegsea-image-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.vegsea-content {
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .vegsea-image-full {
+    height: 50vh;
+  }
+  .vegsea-content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ============================= */
+/* === FOOTER ================== */
+/* ============================= */
+footer {
+  background: linear-gradient(to bottom, #136a8a, #39b54a);
+  color: white;
+  padding: 70px 0 30px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer .logo-glow {
+  height: 110px;
+  margin-bottom: 20px;
+}
+
+footer .social-icon {
+  font-size: 1.8rem;
+}
+
+footer .border-top {
+  border-color: rgba(255,255,255,0.2);
+  font-size: 0.9rem;
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+.meet-everyone-section h2 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.meet-everyone-section .card-img-top {
+  border-radius: 20px;
+}
+
+.meet-everyone-section h4 {
+  font-size: 1.6rem;
+  color: #28a745;
+}
+/* Hover Zoom Animation */
+.team-image-wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.team-image-wrapper img {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.team-card:hover .team-image-wrapper img {
+  transform: scale(1.08);
+}
+.team-card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+  </style>
+  </head>
+  <body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg shadow-sm animate-navbar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center"
+          id="navbarContent">
+          <ul class="navbar-nav">
+            <a href="index.html"><li class="nav-item nav-logo"><img
+                  src="logo.png"
+                  alt="VegSea Logo"></li></a>
+            <li class="nav-item"><a class="nav-link "
+                href="index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#"
+                id="ourCompanyDropdown" role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Our Company
+              </a>
+              <ul class="dropdown-menu custom-dropdown"
+                aria-labelledby="ourCompanyDropdown">
+                <li><a class="dropdown-item" href="aboutus.html">About
+                    Us</a></li>
+                <li><a class="dropdown-item" href="meettheteam.html">Meet the
+                    Team</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link"
+                href="partnerwithus.html">Partner With
+                Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="newsevnets.html">News &
+                Events</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="contactus.html">Contact
+                Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br><br>
+
+    <section class="meet-team-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- Left Text -->
+          <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+            <h5 class="text-success fw-bold mb-3">We Are VegSea</h5>
+            <h2 class="fw-bold mb-4" style="color: #083b2b;">Meet The Team
+              Behind Our Farm-To-Table Venture</h2>
+            <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
+              We are a team of passionate individuals dedicated to transforming
+              how we connect with our food and the communities that produce it.
+              Behind VegSea’s success lies a diverse team of farmers, food
+              enthusiasts, technologists, and sustainability advocates who share
+              a common goal — to empower small farmers, promote sustainable
+              agriculture, and provide access to fresh, locally-sourced produce
+              for all.
+            </p>
+          </div>
+
+          <!-- Right Image -->
+          <div class="col-lg-6 text-center" data-aos="fade-left"
+            data-aos-duration="1000">
+            <div class="team-image-wrapper position-relative">
+              <img src="images/team.jpg" alt="Meet The Team"
+                class="img-fluid rounded-4 shadow-sm">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="team-photo-section py-5" style="background-color: #f5f5f5;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+            <div class="photo-wrapper" data-aos="zoom-in"
+              data-aos-duration="1000">
+              <img src="images/farm.jpg" alt="Hakot Challenge Team"
+                class="img-fluid rounded-4 shadow-sm"
+                style="object-fit: cover; width: 100%; max-height: 700px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vegsea-way-section py-5" style="background-color: #ffffff;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <!-- Left: Text Content -->
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="text-start">
+              <h6 class="text-success fw-bold mb-3"
+                style="letter-spacing: 1px;">OUR PHILOSOPHY</h6>
+              <h2 class="fw-bold mb-4"
+                style="color: #083b2b; font-size: 2.8rem; line-height: 1.2;">
+                The VegSea Way
+              </h2>
+              <p class="text-muted mb-4"
+                style="font-size: 1.1rem; line-height: 1.8;">
+                At VegSea, we believe in cultivating a vibrant, inclusive
+                culture that
+                fosters <span class="fw-semibold">collaboration</span>, <span
+                  class="fw-semibold">innovation</span>,
+                and a shared commitment to creating a meaningful impact.
+              </p>
+              <p class="text-muted"
+                style="font-size: 1.1rem; line-height: 1.8;">
+                Our foundation is built on <span
+                  class="fw-semibold">trust</span>,
+                <span class="fw-semibold">respect</span>, and a genuine
+                appreciation for the
+                diverse talents and perspectives of every team member.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
+          <div class="col-lg-6 text-center" data-aos="fade-left">
+            <div class="vegsea-image-wrapper">
+              <img src="images/farmers.jpg" alt="VegSea Way"
+                class="img-fluid rounded-4 shadow"
+                style="max-height: 500px; width: 100%; object-fit: cover;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="vegsea-vision-section py-5"
+      style="background-color: #f9f9f9;">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+          <!-- Left: Image -->
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+            <div class="vegsea-image-wrapper">
+              <img src="images/fisherfolk.jpg" alt="VegSea Vision"
+                class="img-fluid rounded-4 shadow"
+                style="max-height: 500px; width: 100%; object-fit: cover;">
+            </div>
+          </div>
+
+          <!-- Right: Text -->
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="text-start">
+              <h6 class="text-success fw-bold mb-3"
+                style="letter-spacing: 1px;">OUR VISION</h6>
+              <h2 class="fw-bold mb-4"
+                style="color: #083b2b; font-size: 2.8rem; line-height: 1.2;">
+                Empowering Communities Through Innovation
+              </h2>
+              <p class="text-muted mb-4"
+                style="font-size: 1.1rem; line-height: 1.8;">
+                We envision a future where technology, sustainability, and
+                community development
+                come together to create lasting opportunities for smallholder
+                farmers and fisherfolk.
+              </p>
+              <p class="text-muted"
+                style="font-size: 1.1rem; line-height: 1.8;">
+                Through continuous innovation and a people-first approach,
+                VegSea is building a legacy
+                of resilience, empowerment, and positive transformation across
+                the archipelago.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="meet-everyone-section py-5">
+      <div class="container text-center">
+
+        <h2 class="fw-bold mb-5" style="color: #0f5132;">Meet Everyone</h2>
+
+        <div class="row justify-content-center g-5">
+
+          <!-- Revenue Team -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card border-0 shadow-sm team-card">
+              <div class="team-image-wrapper">
+                <img src="images/team.jpg" alt="Revenue Team"
+                  class="card-img-top">
+              </div>
+              <div class="card-body">
+                <h4 class="fw-bold text-success mt-3">Revenue Team</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operations Team -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card border-0 shadow-sm team-card">
+              <div class="team-image-wrapper">
+                <img src="images/partners.jpg" alt="Operations Team"
+                  class="card-img-top">
+              </div>
+              <div class="card-body">
+                <h4 class="fw-bold text-success mt-3">Operations Team</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marketing Team -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card border-0 shadow-sm team-card">
+              <div class="team-image-wrapper">
+                <img src="images/team.jpg" alt="Marketing Team"
+                  class="card-img-top">
+              </div>
+              <div class="card-body">
+                <h4 class="fw-bold text-success mt-3">Marketing Team</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <footer
+      style="background: linear-gradient(to bottom, #136a8a, #39b54a); color: white; padding: 70px 0 30px 0;">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- Logo + Description + Social -->
+          <div
+            class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+            <div
+              class="d-flex flex-column align-items-center align-items-lg-start">
+              <img src="images/logo-white.png" alt="VegSea Logo"
+                style="height: 110px;"
+                class="mb-4 logo-glow">
+
+              <p
+                style="font-size: 1.1rem; line-height: 1.8; max-width: 450px;">
+                The Philippines’ fastest-growing, impact-driven
+                agri-tech
+                platform empowering smallholder farmers and
+                fisherfolks across
+                the archipelago through sustainable access to
+                market, inputs,
+                and credit. Trusted by a solid portfolio of B2B
+                buyers.
+              </p>
+
+              <div class="d-flex gap-4 mt-4">
+                <a href="#"
+                  class="text-white fs-3 social-icon"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <a href="#"
+                  class="text-white fs-3 social-icon"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a href="#"
+                  class="text-white fs-3 social-icon"><i
+                    class="fab fa-instagram"></i></a>
+                <a href="#"
+                  class="text-white fs-3 social-icon"><i
+                    class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="col-lg-7 d-flex justify-content-center">
+            <div class="row gy-4 w-100 text-center text-lg-start">
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Shop</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Pakyawan</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Vegetables</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Fruits</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Frozen
+                      Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Plant
+                      Based Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Bundles</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">About VegSea</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">About
+                      Us</a></li>
+                  <li><a href="meettheteam.html"
+                      class="text-white text-decoration-none d-block mb-2">Meet
+                      the Team</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Partner
+                      with Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Become
+                      a
+                      Reseller</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Contact</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Contact
+                      Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Viber</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="text-center mt-5 pt-4 border-top"
+          style="border-color: rgba(255,255,255,0.2); font-size: 0.9rem;">
+          &copy; 2025 VegSea. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  </body>
+</html>

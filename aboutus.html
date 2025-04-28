@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>About us</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"></script>
+    <!-- Latest Font Awesome CDN (full icon set) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet">
+
+    <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1050;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  display: none; /* Hide by default */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  background-color: #075e54; /* keep your custom green */
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+/* When hovered, show the dropdown with animation */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Styling for dropdown items inside */
+.dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #0a7b6c;
+  color: #ffffff;
+}
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .nav-logo img {
+      height: 60px;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #2e2e2e !important;
+      margin: 0 15px;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #28a745 !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-logo {
+        margin-bottom: 10px;
+      }
+    }
+    @keyframes slideFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate the Navbar */
+.animate-navbar {
+  animation: slideFadeDown 0.8s ease-out forwards;
+}
+
+
+    .hero-section {
+      background-image: url('images/Huh.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    .content-box {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  max-width: 500px; /* reduced width */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center all children */
+  text-align: center;  /* center text */
+}
+
+    .icon-row {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 30px;
+    }
+
+    .icon-box {
+      text-align: center;
+    }
+
+    .icon-box i {
+      font-size: 2.5rem;
+      color: #004d3b;
+    }
+
+    .icon-box p {
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .underline {
+      width: 40px;
+      height: 5px;
+      background-color: #4CAF50;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+
+    .btn-green {
+      background: linear-gradient(to right, #1a7f4e, #4CAF50);
+      color: white;
+      font-weight: 700;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-green:hover {
+      opacity: 0.9;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-weight: bold;
+      color: #2e2e2e;
+      font-size: 2rem;
+    }
+
+    .section-title h2 span {
+      color: #4CAF50;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .card-custom {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-custom img {
+      height: 320px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      background-color: #f8f9fa;
+      padding: 25px;
+    }
+
+    .card-title {
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .btn-view-all {
+      display: block;
+      margin: 30px auto 0;
+      background: linear-gradient(to right, #1a7f4e, #4CAF50);
+      color: white;
+      font-weight: bold;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-view-all:hover {
+      opacity: 0.9;
+    }
+
+    .img-fluid {
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.partner-logo {
+    max-height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .partner-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-green {
+    background: linear-gradient(to right, #1a7f4e, #4CAF50);
+    color: white;
+    font-weight: 700;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .btn-green:hover {
+    opacity: 0.9;
+  }
+
+  .social-icon:hover {
+    color: #d4f6d2;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+
+  @keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  }
+}
+
+.logo-glow {
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+  background-color: #075e54; /* dark green */
+  border: none;
+  padding: 0;
+  min-width: 180px;
+}
+
+.custom-dropdown .dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #0a7b6c; /* lighter green on hover */
+  color: #ffffff;
+}
+
+<!--Agristyles-->
+
+.agri-vision-section {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.full-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.text-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.section-subtitle {
+  font-weight: 700;
+  color: #39b54a;
+  font-size: 1.3rem;
+}
+
+.section-title {
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: #083b2b;
+  margin-bottom: 25px;
+}
+
+.text-card p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .agri-vision-section .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .full-image-wrapper {
+    height: 300px;
+  }
+}
+
+.text-card {
+  background: #fdfdfd;
+  border: 1px solid #e6e6e6;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.05);
+}
+
+.text-card h2 {
+  color: #083b2b;
+}
+
+.text-card p {
+  color: #555;
+}
+
+.video-section {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+}
+
+.video-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+<!--More about Vegsea-->
+
+.btn-custom {
+  background: linear-gradient(to right, #1a7f4e, #4CAF50);
+  color: white !important;
+  font-weight: bold;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-custom:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, #1a7f4e, #4CAF50);
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.more-about-img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.more-about-img:hover {
+  transform: scale(1.05);
+}
+
+.more-about-link {
+  margin-top: 10px;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #075e54;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.more-about-link:hover {
+  color: #4CAF50;
+  transform: translateY(-5px);
+  text-decoration: underline;
+}
+
+.more-about-card {
+  transition: transform 0.5s ease;
+}
+
+.more-about-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+  </style>
+  </head>
+  <body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg shadow-sm animate-navbar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center"
+          id="navbarContent">
+          <ul class="navbar-nav">
+            <a href="index.html"><li class="nav-item nav-logo"><img
+                  src="images/logo.png"
+                  alt="VegSea Logo"></li></a>
+            <li class="nav-item"><a class="nav-link "
+                href="index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#"
+                id="ourCompanyDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Our Company
+              </a>
+              <ul class="dropdown-menu custom-dropdown"
+                aria-labelledby="ourCompanyDropdown">
+                <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                <li><a class="dropdown-item" href="meettheteam.html">Meet the Team</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="partnerwithus.html">Partner With
+                Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="newsevnets.html">News &
+                Events</a></li>
+            <li class="nav-item"><a class="nav-link"
+                href="contactus.html">Contact
+                Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br><br>
+    <section class="agri-vision-section" data-aos="fade-up"
+      data-aos-duration="1000">
+
+      <div class="container">
+        <div class="row align-items-stretch">
+
+          <!-- Left Image (Full height) -->
+          <div class="col-lg-6 mb-4 mb-lg-0 d-flex">
+            <div class="full-image-wrapper w-100 h-100" data-aos="fade-right"
+              data-aos-delay="100">
+
+              <img src="images/farmers.jpg" alt="Fresh Produce" class="full-img">
+            </div>
+          </div>
+
+          <!-- Right Text (Same height as image) -->
+          <div class="col-lg-6 d-flex">
+            <div
+              class="text-card p-5 rounded-4 shadow-sm bg-white d-flex flex-column justify-content-center w-100"
+              data-aos="fade-left" data-aos-delay="300">
+
+              <div>
+                <h5 class="section-subtitle text-success">Our Agri-Vision</h5>
+                <h2 class="section-title fw-bold">Empowering &
+                  Transforming<br>Lives Through Technology</h2>
+
+                <p class="text-muted"
+                  style="font-size: 1.05rem; line-height: 1.8;">We envision a
+                  Philippines where smallholder farmers and fisherfolk lead
+                  better lives because of technology, community, and an
+                  overarching passion to cultivate positive impact.</p>
+
+                <p class="text-muted"
+                  style="font-size: 1.05rem; line-height: 1.8;">By building a
+                  sustainable pathway to market, VEGSEA is able to boost rural
+                  incomes while strengthening access to affordable fresh produce
+                  for both households and commercial buyers.</p>
+
+                <p class="text-muted"
+                  style="font-size: 1.05rem; line-height: 1.8;">We now
+                  collaborate with the country’s largest supermarket chains,
+                  food brands, international hotels, food processors, and other
+                  institutional players in moving the Philippine agri-fisheries
+                  sector forward.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <br><br>
+
+    <section class="video-section">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-10">
+            <div class="video-wrapper" data-aos="zoom-in"
+              data-aos-duration="1000">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/971d21W9yjM"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="more-about-section py-5" style="background-color: #f5f5f5;">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5">
+          More about <span class="text-success">Vegsea</span>
+        </h2>
+    
+        <div class="row justify-content-center align-items-stretch g-4">
+          <!-- Card 1 -->
+          <div class="col-md-6 d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="overflow-hidden rounded-4 shadow-sm w-100 mb-3 more-about-card">
+              <img src="images/partners.jpg" alt="Our Partners" class="more-about-img">
+            </div>
+            <a href="partnerwithus.html" class="more-about-link">OUR PARTNERS</a>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="col-md-6 d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="overflow-hidden rounded-4 shadow-sm w-100 mb-3 more-about-card">
+              <img src="images/team.jpg" alt="Meet the Team" class="more-about-img">
+            </div>
+            <a href="meettheteam.html" class="more-about-link">MEET THE TEAM</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="subscribe-section py-5"
+      style="background: url('images/farm.jpg') center center/cover no-repeat; min-height: 100vh; display: flex; align-items: center;">
+      <div class="container">
+        <div class="row justify-content-start">
+          <div class="col-md-6">
+            <div class="bg-white p-5 rounded-4 shadow" data-aos="fade-right"
+              data-aos-duration="1000">
+              <h2 class="fw-bold mb-3">Subscribe to our newsletter to<br>stay
+                updated with us!</h2>
+              <p class="mb-4 text-muted" style="font-size: 1.1rem;">Receive
+                latest updates, news, promo and giveaways straight to your
+                email</p>
+
+              <form>
+                <div class="mb-4">
+                  <input type="email"
+                    class="form-control form-control-lg rounded-pill"
+                    placeholder="Email Address" required>
+                </div>
+                <button type="submit"
+                  class="btn btn-gradient w-100 rounded-pill py-3 fw-bold">
+                  RECEIVE UPDATES <i class="fas fa-envelope-open-text ms-2"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      style="background: linear-gradient(to bottom, #136a8a, #39b54a); color: white; padding: 70px 0 30px 0;">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- Logo + Description + Social -->
+          <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+            <div
+              class="d-flex flex-column align-items-center align-items-lg-start">
+              <img src="images/logo-white.png" alt="VegSea Logo" style="height: 110px;"
+                class="mb-4 logo-glow">
+
+              <p style="font-size: 1.1rem; line-height: 1.8; max-width: 450px;">
+                The Philippines’ fastest-growing, impact-driven agri-tech
+                platform empowering smallholder farmers and fisherfolks across
+                the archipelago through sustainable access to market, inputs,
+                and credit. Trusted by a solid portfolio of B2B buyers.
+              </p>
+
+              <div class="d-flex gap-4 mt-4">
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="col-lg-7 d-flex justify-content-center">
+            <div class="row gy-4 w-100 text-center text-lg-start">
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Shop</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Pakyawan</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Vegetables</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Fruits</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Frozen
+                      Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Plant
+                      Based Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Bundles</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">About VegSea</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">About
+                      Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Meet
+                      the Team</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Partner
+                      with Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Become a
+                      Reseller</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Contact</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Contact
+                      Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Viber</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="text-center mt-5 pt-4 border-top"
+          style="border-color: rgba(255,255,255,0.2); font-size: 0.9rem;">
+          &copy; 2025 VegSea. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
+  </body>
+</html>

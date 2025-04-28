@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact Us</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"
+            crossorigin="anonymous"></script>
+        <!-- Latest Font Awesome CDN (full icon set) -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+            rel="stylesheet">
+
+        <style>
+
+@keyframes slideFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate the Navbar */
+.animate-navbar {
+  animation: slideFadeDown 0.8s ease-out forwards;
+}
+
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1050;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  display: none; /* Hide by default */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  background-color: #075e54; /* keep your custom green */
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+/* When hovered, show the dropdown with animation */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Styling for dropdown items inside */
+.dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+
+.dropdown-item:hover {
+  background-color: #0a7b6c;
+  color: #ffffff;
+}
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
+
+    .nav-logo img {
+      height: 60px;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #2e2e2e !important;
+      margin: 0 15px;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #28a745 !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-logo {
+        margin-bottom: 10px;
+      }
+    }
+
+
+  .social-icon:hover {
+    color: #d4f6d2;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+
+  @keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  }
+}
+
+.logo-glow {
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+/* Custom Dropdown */
+.custom-dropdown {
+  background-color: #075e54; /* dark green */
+  border: none;
+  padding: 0;
+  min-width: 180px;
+}
+
+.custom-dropdown .dropdown-item {
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #0a7b6c; /* lighter green on hover */
+  color: #ffffff;
+}
+
+.contact-section {
+      background: url('images/farm.jpg') center center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .contact-card {
+      background-color: white;
+      padding: 50px 40px;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card h2 {
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #2e2e2e;
+    }
+
+    .form-control {
+      border: none;
+      border-bottom: 2px solid #ccc;
+      border-radius: 0;
+      padding-left: 0;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #4CAF50;
+    }
+
+    .btn-send {
+      background: linear-gradient(to right, #1a7f4e, #4CAF50);
+      color: white;
+      font-weight: 700;
+      border: none;
+      padding: 12px 40px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-send:hover {
+      opacity: 0.9;
+    }
+    /* Contact Info Layout */
+.contact-info-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 50px;
+  min-height: 90vh;
+  background-color: white;
+}
+
+.contact-left {
+  flex: 1;
+  max-width: 700px; /* 👈 bigger now */
+  padding: 40px;
+}
+
+.contact-left img.logo {
+  height: 90px;
+  margin-bottom: 30px;
+}
+
+.contact-left h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #1d3b2a;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 1.2rem; /* 👈 slightly bigger font */
+}
+
+.contact-item i {
+  font-size: 1.6rem;
+  margin-right: 20px;
+  color: #0a4430;
+}
+
+.contact-item a {
+  color: #1a8f40;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.contact-right {
+  flex: 1;
+  padding: 40px;
+  max-width: 800px; /* 👈 make right side wider */
+}
+
+.contact-right img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 300px;  /* more dramatic roundness */
+  border-bottom-left-radius: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-info-section {
+    flex-direction: column;
+  }
+
+  .contact-right img {
+    border-radius: 20px;
+  }
+}
+
+@keyframes slideFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate the Contact Card */
+.animate-contact {
+  animation: slideFadeUp 1s ease-out forwards;
+}
+
+/* Animate the Title separately for a delay */
+.animate-title {
+  animation: slideFadeUp 1.2s ease-out forwards;
+}
+
+/* Button Hover Pop */
+.animate-btn {
+  transition: all 0.3s ease;
+}
+
+.animate-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #0f703f, #66bb6a);
+}
+  </style>
+    </head>
+    <body>
+
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-expand-lg shadow-sm animate-navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-center"
+                    id="navbarContent">
+                    <ul class="navbar-nav">
+                      <a href="index.html"><li class="nav-item nav-logo"><img src="images/logo.png"
+                        alt="VegSea Logo"></li></a>
+                        <li class="nav-item"><a class="nav-link"
+                                href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                                id="ourCompanyDropdown" role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Our Company
+                            </a>
+                            <ul class="dropdown-menu custom-dropdown"
+                                aria-labelledby="ourCompanyDropdown">
+                                <li><a class="dropdown-item" href="aboutus.html">About
+                                        Us</a></li>
+                                <li><a class="dropdown-item" href="meettheteam.html">Meet the
+                                        Team</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="#">Partner With
+                                Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="newsevnets.html">News &
+                                Events</a></li>
+                        <li class="nav-item"><a class="nav-link active"
+                                href="contactus.html">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="contact-section">
+            <div class="contact-card text-center text-lg-start animate-contact"> <!-- add animate-contact here -->
+                <h2 class="animate-title">Message Us Here!</h2> <!-- add animate-title here -->
+                <form>
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="email" class="form-control" placeholder="Email Address" required>
+                    <textarea class="form-control" rows="4" placeholder="Message" required></textarea>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-send animate-btn"> <!-- add animate-btn here -->
+                            SEND <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+
+        <section class="contact-info-section">
+            <!-- Left Info -->
+            <div class="contact-left text-center text-md-start">
+              <img src="images/logo.png" alt="Vegsea Logo" class="logo">
+              <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+639491211300">(+63) 953-1123-743</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:customerservice@veggsea.ph">customerservice@vegseaph</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-facebook-f"></i>
+                <a href="https://facebook.com/veggseaph" target="_blank">facebook.com/vegseaph</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <a href="https://instagram.com/veggseaph" target="_blank">instagram.com/vegseaph</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin-in"></i>
+                <a href="https://linkedin.com/company/veggsea" target="_blank">linkedin.com/company/vegseaph</a>
+              </div>
+            </div>
+        
+            <!-- Right Image -->
+            <div class="contact-right">
+              <img src="images/farmers.jpg" alt="Farmers">
+            </div>
+          </section>
+
+          <footer
+      style="background: linear-gradient(to bottom, #136a8a, #39b54a); color: white; padding: 70px 0 30px 0;">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <!-- Logo + Description + Social -->
+          <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+            <div
+              class="d-flex flex-column align-items-center align-items-lg-start">
+              <img src="images/logo-white.png" alt="VegSea Logo" style="height: 110px;"
+                class="mb-4 logo-glow">
+
+              <p style="font-size: 1.1rem; line-height: 1.8; max-width: 450px;">
+                The Philippines’ fastest-growing, impact-driven agri-tech
+                platform empowering smallholder farmers and fisherfolks across
+                the archipelago through sustainable access to market, inputs,
+                and credit. Trusted by a solid portfolio of B2B buyers.
+              </p>
+
+              <div class="d-flex gap-4 mt-4">
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white fs-3 social-icon"><i
+                    class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="col-lg-7 d-flex justify-content-center">
+            <div class="row gy-4 w-100 text-center text-lg-start">
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Shop</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Pakyawan</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Vegetables</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Fruits</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Frozen
+                      Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Plant
+                      Based Meat</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Bundles</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">About VegSea</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">About
+                      Us</a></li>
+                  <li><a href="meettheteam.html"
+                      class="text-white text-decoration-none d-block mb-2">Meet
+                      the Team</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Partner
+                      with Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Become a
+                      Reseller</a></li>
+                </ul>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <h6 class="fw-bold mb-3">Contact</h6>
+                <ul class="list-unstyled">
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block mb-2">Contact
+                      Us</a></li>
+                  <li><a href="#"
+                      class="text-white text-decoration-none d-block">Viber</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="text-center mt-5 pt-4 border-top"
+          style="border-color: rgba(255,255,255,0.2); font-size: 0.9rem;">
+          &copy; 2025 VegSea. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
